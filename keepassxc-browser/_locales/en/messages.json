@@ -266,6 +266,34 @@
     "passwordGeneratorNotSupported": {
         "message": "Launching the password generator is not supported in this KeePassXC version. Please update KeePassXC to a newer version."
     },
+    "passwordGeneratorLocalTitle": {
+        "message": "Local Password Generator",
+        "description": "Title for the local password generator panel."
+    },
+    "passwordGeneratorLocalRegenerate": {
+        "message": "Regenerate",
+        "description": "Button to regenerate a new password in the local generator panel."
+    },
+    "passwordGeneratorLocalUse": {
+        "message": "Use",
+        "description": "Button to fill the generated password into the target field."
+    },
+    "passwordGeneratorLocalClose": {
+        "message": "Close",
+        "description": "Button to close the local password generator panel."
+    },
+    "passwordGeneratorLocalToggle": {
+        "message": "Show/hide password",
+        "description": "Button to toggle password visibility in the local generator panel."
+    },
+    "passwordGeneratorLocalShow": {
+        "message": "Show",
+        "description": "Button label to show (unmask) the generated password."
+    },
+    "passwordGeneratorLocalHide": {
+        "message": "Hide",
+        "description": "Button label to hide (mask) the generated password."
+    },
     "usernameFieldText": {
         "message": "Fill credentials from KeePassXC.",
         "description": "Username field icon hover text."
