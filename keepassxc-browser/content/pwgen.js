@@ -292,6 +292,7 @@ kpxcPasswordGenerator.showLocalGenerator = function(field) {
         currentPassword = localGeneratePassword(getPwgenOpts());
         passwordDisplay.value = currentPassword;
         passwordDisplay.setAttribute('type', 'text');
+        toggleBtn.textContent = tr('passwordGeneratorLocalHide');
     });
 
     const useBtn = kpxcUI.createElement('button', 'kpxc-button kpxc-green-button', {

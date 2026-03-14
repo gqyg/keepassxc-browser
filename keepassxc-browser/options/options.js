@@ -172,14 +172,19 @@ options.initResetDialog = function() {
             saveBtn.addEventListener('click', options.validateAndSave);
         }
 
-        // Also validate char types on checkbox change
+        // Validate char types on checkbox change (show/hide alert immediately)
         const charTypeBoxes = document.querySelectorAll('#pwgenUseDigits, #pwgenUseLetters, #pwgenUseSymbols');
         charTypeBoxes.forEach(cb => {
             cb.addEventListener('change', () => {
-                const alert = $('#pwgenAtLeastOneAlert');
+                const atLeastOneAlert = $('#pwgenAtLeastOneAlert');
+                if (!atLeastOneAlert) {
+                    return;
+                }
                 const anyChecked = $('#pwgenUseDigits').checked || $('#pwgenUseLetters').checked || $('#pwgenUseSymbols').checked;
-                if (anyChecked && alert) {
-                    alert.classList.add('d-none');
+                if (anyChecked) {
+                    atLeastOneAlert.classList.add('d-none');
+                } else {
+                    atLeastOneAlert.classList.remove('d-none');
                 }
             });
         });
