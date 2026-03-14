@@ -326,6 +326,10 @@
         "message": "Settings saved.",
         "description": "Confirmation message after saving password generator settings."
     },
+    "pwgenOptionsAtLeastOne": {
+        "message": "Select at least one character category.",
+        "description": "Error shown when no character categories are selected in options."
+    },
     "usernameFieldText": {
         "message": "Fill credentials from KeePassXC.",
         "description": "Username field icon hover text."

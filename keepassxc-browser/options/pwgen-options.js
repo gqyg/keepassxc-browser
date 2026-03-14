@@ -1,6 +1,8 @@
 'use strict';
 
 const PWGEN_SETTINGS_KEY = 'pwgenSettings';
+const MIN_LENGTH = 8;
+const MAX_LENGTH = 64;
 
 const DEFAULTS = {
     length: 16,
@@ -27,7 +29,14 @@ const clamp = function(value, min, max) {
 
 const loadSettings = async function() {
     const result = await browser.storage.local.get(PWGEN_SETTINGS_KEY);
-    return { ...DEFAULTS, ...(result[PWGEN_SETTINGS_KEY] || {}) };
+    const stored = result[PWGEN_SETTINGS_KEY] || {};
+    // Only return the expected fields to avoid stale or unexpected properties
+    return {
+        length: typeof stored.length === 'number' ? clamp(stored.length, MIN_LENGTH, MAX_LENGTH) : DEFAULTS.length,
+        includeLetters: typeof stored.includeLetters === 'boolean' ? stored.includeLetters : DEFAULTS.includeLetters,
+        includeDigits: typeof stored.includeDigits === 'boolean' ? stored.includeDigits : DEFAULTS.includeDigits,
+        includeSymbols: typeof stored.includeSymbols === 'boolean' ? stored.includeSymbols : DEFAULTS.includeSymbols,
+    };
 };
 
 const saveSettings = async function(settings) {
@@ -46,9 +55,10 @@ const init = async function() {
     const includeSymbols = document.getElementById('includeSymbols');
     const saveBtn = document.getElementById('save');
     const savedMsg = document.getElementById('saved-msg');
+    const errorMsg = document.getElementById('error-msg');
 
     // Populate form from loaded settings
-    const initialLength = clamp(settings.length, 8, 64);
+    const initialLength = clamp(settings.length, MIN_LENGTH, MAX_LENGTH);
     lengthSlider.value = initialLength;
     lengthInput.value = initialLength;
     includeLetters.checked = settings.includeLetters;
@@ -61,14 +71,21 @@ const init = async function() {
     });
 
     lengthInput.addEventListener('input', function() {
-        const val = clamp(parseInt(lengthInput.value, 10) || DEFAULTS.length, 8, 64);
+        const val = clamp(parseInt(lengthInput.value, 10) || DEFAULTS.length, MIN_LENGTH, MAX_LENGTH);
         lengthSlider.value = val;
         lengthInput.value = val;
     });
 
     saveBtn.addEventListener('click', async function() {
+        const atLeastOne = includeLetters.checked || includeDigits.checked || includeSymbols.checked;
+        if (!atLeastOne) {
+            errorMsg.classList.remove('hidden');
+            return;
+        }
+        errorMsg.classList.add('hidden');
+
         const newSettings = {
-            length: clamp(parseInt(lengthInput.value, 10) || DEFAULTS.length, 8, 64),
+            length: clamp(parseInt(lengthInput.value, 10) || DEFAULTS.length, MIN_LENGTH, MAX_LENGTH),
             includeLetters: includeLetters.checked,
             includeDigits: includeDigits.checked,
             includeSymbols: includeSymbols.checked,
