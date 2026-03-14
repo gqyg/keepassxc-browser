@@ -1,21 +1,40 @@
-# KeePassXC-Browser
+# Password Generator (generator-only fork of KeePassXC-Browser)
 
-Browser extension for [KeePassXC](https://keepassxc.org/) with [native messaging](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
+> **⚠️ Generator-Only Fork** — This is a stripped-down variant of
+> [KeePassXC-Browser](https://github.com/keepassxc/keepassxc-browser) that
+> **only provides the local password generator**.  All KeePassXC connection,
+> database, autofill and native-messaging features have been removed.
+> No connection to KeePassXC is required or attempted.
 
-## Download and use
+## What this does
 
-This browser extension was first supported in KeePassXC 2.3.0 (release end of 2017). In general it is advised to only use the latest available release.
+- Injects a 🔑 key icon next to every `<input type="password">` field on web pages.
+- Clicking the icon opens a lightweight generator panel (Shadow DOM, isolated from page styles) where you can:
+  - Set password **length** (default: 16)
+  - Toggle **include symbols** (default: on)
+  - Toggle **exclude similar characters** (default: off)
+  - Click **Regenerate** to get a new password
+  - Click **Use** to fill the password field (fires `input` and `change` events)
+  - Click **Close** to dismiss
+- Keyboard shortcut **Alt+Shift+G** (Windows/Linux) / **Ctrl+Shift+G** (macOS) opens the panel for the focused password field.
+- Passwords are generated locally using `crypto.getRandomValues` — no network requests, no background service, no stored credentials.
 
-Get the extension for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Chrome/Chromium](https://chromewebstore.google.com/detail/keepassxc-browser/oboonakemofpalcgghocfoadofidjkkk) or [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/pdffhmdngciaglkoonimfcmckehcpafo).
+## Permissions
 
-Please see this [document](https://keepassxc.org/docs/KeePassXC_GettingStarted.html#_browser_integration) for instructions how to configure KeePassXC in order to connect the database correctly.
+This fork requests **no special browser permissions**.  The extension only injects a content script into web pages to add the generator UI.
 
-## How it works
+## Building / loading unpacked
 
-KeePassXC-Browser communicates with KeePassXC through _keepassxc-proxy_. The proxy handles listening to STDIN/STDOUT
-and transfers these messages through Unix domain sockets / named pipes to KeePassXC. This means KeePassXC can be used and started normally without inteference from
-Native Messaging API. KeePassXC-Browser starts only the proxy application and there's no risk of shutting down KeePassXC or losing any unsaved changes. You don't need to install keepassxc-proxy separately. It is included in the KeePassXC application package. Alternatively you can use
-[keepassxc-proxy-rust](https://github.com/varjolintu/keepassxc-proxy-rust) as a proxy if you prefer a non-Qt solution.
+```bash
+npm install
+npm run build     # or: npm run dev
+```
+
+Then in Chrome/Chromium → `chrome://extensions` → enable **Developer mode** → **Load unpacked** → select the `keepassxc-browser/` directory.
+
+---
+
+*Original project: [keepassxc/keepassxc-browser](https://github.com/keepassxc/keepassxc-browser)*
 
 ## Requested permissions
 
