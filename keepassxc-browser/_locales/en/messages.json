@@ -266,6 +266,66 @@
     "passwordGeneratorNotSupported": {
         "message": "Launching the password generator is not supported in this KeePassXC version. Please update KeePassXC to a newer version."
     },
+    "passwordGeneratorLocalTitle": {
+        "message": "Local Password Generator",
+        "description": "Title for the local password generator panel."
+    },
+    "passwordGeneratorLocalRegenerate": {
+        "message": "Regenerate",
+        "description": "Button to regenerate a new password in the local generator panel."
+    },
+    "passwordGeneratorLocalUse": {
+        "message": "Use",
+        "description": "Button to fill the generated password into the target field."
+    },
+    "passwordGeneratorLocalClose": {
+        "message": "Close",
+        "description": "Button to close the local password generator panel."
+    },
+    "passwordGeneratorLocalToggle": {
+        "message": "Show/hide password",
+        "description": "Button to toggle password visibility in the local generator panel."
+    },
+    "passwordGeneratorLocalShow": {
+        "message": "Show",
+        "description": "Button label to show (unmask) the generated password."
+    },
+    "passwordGeneratorLocalHide": {
+        "message": "Hide",
+        "description": "Button label to hide (mask) the generated password."
+    },
+    "pwgenOptionsTitle": {
+        "message": "Password Generator Settings",
+        "description": "Title for the password generator options page."
+    },
+    "pwgenOptionsLength": {
+        "message": "Password Length",
+        "description": "Label for the password length setting."
+    },
+    "pwgenOptionsLengthHint": {
+        "message": "(8–64 characters)",
+        "description": "Hint text for the password length range."
+    },
+    "pwgenOptionsIncludeLetters": {
+        "message": "Include letters (a–z, A–Z)",
+        "description": "Checkbox label to include letters in generated passwords."
+    },
+    "pwgenOptionsIncludeDigits": {
+        "message": "Include digits (0–9)",
+        "description": "Checkbox label to include digits in generated passwords."
+    },
+    "pwgenOptionsIncludeSymbols": {
+        "message": "Include symbols (!@#… always includes '.')",
+        "description": "Checkbox label to include symbols in generated passwords."
+    },
+    "pwgenOptionsSave": {
+        "message": "Save",
+        "description": "Save button label on the password generator options page."
+    },
+    "pwgenOptionsSaved": {
+        "message": "Settings saved.",
+        "description": "Confirmation message after saving password generator settings."
+    },
     "usernameFieldText": {
         "message": "Fill credentials from KeePassXC.",
         "description": "Username field icon hover text."
