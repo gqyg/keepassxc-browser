@@ -1461,5 +1461,73 @@
     "gettingStartedNewUser": {
         "message": "新用户？请查看我们的文档链接。",
         "description": "Are you a new user? Check links to our documentation."
+    },
+    "passwordGeneratorLocalTitle": {
+        "message": "本地密码生成器",
+        "description": "Title for the local password generator panel."
+    },
+    "passwordGeneratorLocalRegenerate": {
+        "message": "重新生成",
+        "description": "Button to regenerate a new password in the local generator panel."
+    },
+    "passwordGeneratorLocalUse": {
+        "message": "使用",
+        "description": "Button to fill the generated password into the target field."
+    },
+    "passwordGeneratorLocalClose": {
+        "message": "关闭",
+        "description": "Button to close the local password generator panel."
+    },
+    "passwordGeneratorLocalToggle": {
+        "message": "显示/隐藏密码",
+        "description": "Button to toggle password visibility in the local generator panel."
+    },
+    "passwordGeneratorLocalShow": {
+        "message": "显示",
+        "description": "Button label to show (unmask) the generated password."
+    },
+    "passwordGeneratorLocalHide": {
+        "message": "隐藏",
+        "description": "Button label to hide (mask) the generated password."
+    },
+    "optionsPwgenSettingsTitle": {
+        "message": "密码生成器设置",
+        "description": "Title for the password generator settings section in options."
+    },
+    "optionsPwgenLength": {
+        "message": "密码长度",
+        "description": "Label for the password length input in options."
+    },
+    "optionsPwgenLengthHelp": {
+        "message": "生成密码的长度（8–20 个字符）。",
+        "description": "Help text for the password length input."
+    },
+    "optionsPwgenCharTypes": {
+        "message": "字符类型",
+        "description": "Label for the character type checkboxes in options."
+    },
+    "optionsPwgenUseDigits": {
+        "message": "数字（0-9）",
+        "description": "Label for the digits checkbox in password generator settings."
+    },
+    "optionsPwgenUseLetters": {
+        "message": "字母（a-z, A-Z）",
+        "description": "Label for the letters checkbox in password generator settings."
+    },
+    "optionsPwgenUseSymbols": {
+        "message": "特殊字符（!@#...）",
+        "description": "Label for the symbols checkbox in password generator settings."
+    },
+    "optionsPwgenAtLeastOneType": {
+        "message": "至少选择一种字符类型。",
+        "description": "Warning shown when no character type is selected in password generator settings."
+    },
+    "popupPasswordGeneratorReady": {
+        "message": "密码生成器已激活。点击密码框旁边的钥匙图标即可生成密码。",
+        "description": "Message shown in the popup when password generator is ready."
+    },
+    "optionsSettingsSaved": {
+        "message": "设置已保存。",
+        "description": "Message shown after settings are saved."
     }
 }

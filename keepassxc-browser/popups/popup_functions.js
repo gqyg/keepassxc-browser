@@ -11,20 +11,25 @@ function updateAvailableResponse(available) {
 }
 
 async function initSettings() {
-    $('#settings #options-button').addEventListener('click', () => {
-        browser.runtime.openOptionsPage().then(close());
-    });
+    const optionsButton = $('#settings #options-button');
+    if (optionsButton) {
+        optionsButton.addEventListener('click', () => {
+            browser.runtime.openOptionsPage().then(close());
+        });
+    }
 
     const customLoginFieldsButton = document.body.querySelector('#settings #choose-custom-login-fields-button');
-    customLoginFieldsButton.id = getIconClass('choose-custom-login-fields-button');
+    if (customLoginFieldsButton) {
+        customLoginFieldsButton.id = getIconClass('choose-custom-login-fields-button');
 
-    customLoginFieldsButton.addEventListener('click', async () => {
-        const tab = await getCurrentTab();
-        browser.tabs.sendMessage(tab?.id, {
-            action: 'choose_credential_fields'
+        customLoginFieldsButton.addEventListener('click', async () => {
+            const tab = await getCurrentTab();
+            browser.tabs.sendMessage(tab?.id, {
+                action: 'choose_credential_fields'
+            });
+            close();
         });
-        close();
-    });
+    }
 }
 
 async function initColorTheme() {

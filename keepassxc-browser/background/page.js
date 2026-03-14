@@ -37,7 +37,11 @@ const defaultSettings = {
     useMonochromeToolbarIcon: false,
     useObserver: true,
     usePredefinedSites: true,
-    usePasswordGeneratorIcons: false,
+    usePasswordGeneratorIcons: true,
+    pwgenLength: 16,
+    pwgenUseDigits: true,
+    pwgenUseLetters: true,
+    pwgenUseSymbols: true,
 };
 
 const AUTO_SUBMIT_TIMEOUT = 5000;
