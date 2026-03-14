@@ -1461,5 +1461,73 @@
     "gettingStartedNewUser": {
         "message": "Are you a new user? Check links to our documentation.",
         "description": "Are you a new user? Check links to our documentation."
+    },
+    "passwordGeneratorLocalTitle": {
+        "message": "Local Password Generator",
+        "description": "Title for the local password generator panel."
+    },
+    "passwordGeneratorLocalRegenerate": {
+        "message": "Regenerate",
+        "description": "Button to regenerate a new password in the local generator panel."
+    },
+    "passwordGeneratorLocalUse": {
+        "message": "Use",
+        "description": "Button to fill the generated password into the target field."
+    },
+    "passwordGeneratorLocalClose": {
+        "message": "Close",
+        "description": "Button to close the local password generator panel."
+    },
+    "passwordGeneratorLocalToggle": {
+        "message": "Show/hide password",
+        "description": "Button to toggle password visibility in the local generator panel."
+    },
+    "passwordGeneratorLocalShow": {
+        "message": "Show",
+        "description": "Button label to show (unmask) the generated password."
+    },
+    "passwordGeneratorLocalHide": {
+        "message": "Hide",
+        "description": "Button label to hide (mask) the generated password."
+    },
+    "optionsPwgenSettingsTitle": {
+        "message": "Password Generator Settings",
+        "description": "Title for the password generator settings section in options."
+    },
+    "optionsPwgenLength": {
+        "message": "Password length",
+        "description": "Label for the password length input in options."
+    },
+    "optionsPwgenLengthHelp": {
+        "message": "Length of generated passwords (8–20 characters).",
+        "description": "Help text for the password length input."
+    },
+    "optionsPwgenCharTypes": {
+        "message": "Character types",
+        "description": "Label for the character type checkboxes in options."
+    },
+    "optionsPwgenUseDigits": {
+        "message": "Digits (0-9)",
+        "description": "Label for the digits checkbox in password generator settings."
+    },
+    "optionsPwgenUseLetters": {
+        "message": "Letters (a-z, A-Z)",
+        "description": "Label for the letters checkbox in password generator settings."
+    },
+    "optionsPwgenUseSymbols": {
+        "message": "Symbols (!@#...)",
+        "description": "Label for the symbols checkbox in password generator settings."
+    },
+    "optionsPwgenAtLeastOneType": {
+        "message": "At least one character type must be selected.",
+        "description": "Warning shown when no character type is selected in password generator settings."
+    },
+    "popupPasswordGeneratorReady": {
+        "message": "Password Generator is active. Click the key icon next to any password field to generate a password.",
+        "description": "Message shown in the popup when password generator is ready."
+    },
+    "optionsSettingsSaved": {
+        "message": "Settings saved.",
+        "description": "Message shown after settings are saved."
     }
 }
