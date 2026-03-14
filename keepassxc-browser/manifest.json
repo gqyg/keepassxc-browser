@@ -27,7 +27,7 @@
         "default_popup": "popups/popup.html"
     },
     "options_ui": {
-        "page": "options/options.html",
+        "page": "options/pwgen-options.html",
         "open_in_tab": true
     },
     "background": {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pwgenOptionsTitle">Password Generator Settings</title>
+    <link rel="stylesheet" href="pwgen-options.css">
+</head>
+<body>
+    <div class="container">
+        <h1 data-i18n="pwgenOptionsTitle">Password Generator Settings</h1>
+        <p class="note">
+            Generated passwords always contain a <strong>.</strong> (dot).<br>
+            Each selected category contributes at least one character.
+        </p>
+
+        <div class="field-group">
+            <label for="length" data-i18n="pwgenOptionsLength">Password Length</label>
+            <div class="length-row">
+                <input type="range" id="length-slider" min="8" max="64" value="16" aria-label="Password length slider">
+                <input type="number" id="length" min="8" max="64" value="16" aria-label="Password length">
+                <span class="hint" data-i18n="pwgenOptionsLengthHint">(8–64 characters)</span>
+            </div>
+        </div>
+
+        <div class="field-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="includeLetters" checked>
+                <span data-i18n="pwgenOptionsIncludeLetters">Include letters (a–z, A–Z)</span>
+            </label>
+        </div>
+
+        <div class="field-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="includeDigits" checked>
+                <span data-i18n="pwgenOptionsIncludeDigits">Include digits (0–9)</span>
+            </label>
+        </div>
+
+        <div class="field-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="includeSymbols" checked>
+                <span data-i18n="pwgenOptionsIncludeSymbols">Include symbols (!@#… always includes '.')</span>
+            </label>
+        </div>
+
+        <div class="actions">
+            <button id="save" data-i18n="pwgenOptionsSave">Save</button>
+            <span id="saved-msg" class="saved-msg hidden" data-i18n="pwgenOptionsSaved">Settings saved.</span>
+            <span id="error-msg" class="error-msg hidden" data-i18n="pwgenOptionsAtLeastOne">Select at least one character category.</span>
+        </div>
+    </div>
+    <script src="../common/browser-polyfill.min.js"></script>
+    <script src="pwgen-options.js"></script>
+</body>
+</html>
