@@ -12,7 +12,8 @@ const PWGEN_DEFAULTS = {
 };
 
 /**
- * Generate a cryptographically-random password.
+ * Generate a cryptographically-random password using rejection sampling to
+ * avoid modulo bias.
  */
 const localPwGen = {};
 localPwGen.generate = function(opts) {
@@ -34,9 +35,27 @@ localPwGen.generate = function(opts) {
         charset = charset.split('').filter(c => !similar.includes(c)).join('');
     }
 
-    const buf = new Uint32Array(length);
-    crypto.getRandomValues(buf);
-    return Array.from(buf, x => charset[x % charset.length]).join('');
+    const charsetLen = charset.length;
+    // Compute the largest multiple of charsetLen that fits in a Uint32 to avoid
+    // modulo bias via rejection sampling.
+    const maxUnbiased = Math.floor(0x100000000 / charsetLen) * charsetLen;
+    const result = [];
+
+    while (result.length < length) {
+        const buf = new Uint32Array(length - result.length);
+        crypto.getRandomValues(buf);
+        for (const v of buf) {
+            if (result.length >= length) {
+                break;
+            }
+            // Reject values that would introduce bias
+            if (v < maxUnbiased) {
+                result.push(charset[v % charsetLen]);
+            }
+        }
+    }
+
+    return result.join('');
 };
 
 // ---------------------------------------------------------------------------

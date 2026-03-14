@@ -27,11 +27,6 @@ const DatabaseState = {
     UNLOCKED: 2
 };
 
-const BannerPosition = {
-    BOTTOM: 0,
-    TOP: 1
-};
-
 // jQuery-style wrapper for querySelector
 const $ = function(elem) {
     return document.querySelector(elem);

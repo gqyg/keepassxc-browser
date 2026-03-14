@@ -30,10 +30,12 @@ kpxcIcons.deleteAllHiddenIcons = function() {
 
 kpxcIcons.deleteIcons = function(iconList) {
     const deletedInputs = [];
-    for (const icon of iconList) {
+    // Iterate in reverse so splicing doesn't skip elements
+    for (let i = iconList.length - 1; i >= 0; i--) {
+        const icon = iconList[i];
         if (icon.inputField && !kpxcFields.isVisible(icon.inputField)) {
             icon.removeIcon();
-            iconList.splice(iconList.indexOf(icon), 1);
+            iconList.splice(i, 1);
             deletedInputs.push(icon.inputField);
 
             const idx = kpxc.inputs.indexOf(icon.inputField);

@@ -38,29 +38,36 @@ kpxcInit.addIconsToPasswordFields = function() {
  * Watch the DOM for dynamically added password fields (single-page apps, modals, etc.)
  */
 kpxcInit.observeDocument = function() {
+    let scanTimer = null;
+
+    const scheduleScan = function() {
+        if (scanTimer) {
+            return;
+        }
+        scanTimer = setTimeout(function() {
+            scanTimer = null;
+            kpxcInit.addIconsToPasswordFields();
+            kpxcIcons.deleteAllHiddenIcons();
+        }, 200);
+    };
+
     const observer = new MutationObserver(function(mutations) {
         if (document.visibilityState === 'hidden' || kpxcUI.mouseDown) {
             return;
         }
 
-        let needsScan = false;
         for (const mut of mutations) {
             if (mut.type === 'childList' && mut.addedNodes.length > 0) {
-                needsScan = true;
-                break;
+                scheduleScan();
+                return;
             }
             if (mut.type === 'attributes'
                 && (mut.attributeName === 'style' || mut.attributeName === 'class')
                 && mut.target instanceof HTMLInputElement
                 && mut.target.type === 'password') {
-                needsScan = true;
-                break;
+                scheduleScan();
+                return;
             }
-        }
-
-        if (needsScan) {
-            kpxcInit.addIconsToPasswordFields();
-            kpxcIcons.deleteAllHiddenIcons();
         }
     });
 
